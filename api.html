@@ -191,8 +191,28 @@
         <article role="main">
           <section id="api-documentation">
 <h1>API Documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline">#</a></h1>
-<section id="evaluate-py">
-<h2>evaluate.py<a class="headerlink" href="#evaluate-py" title="Permalink to this headline">#</a></h2>
+<section id="module-evaluate">
+<span id="evaluate-py"></span><h2>evaluate.py<a class="headerlink" href="#module-evaluate" title="Permalink to this headline">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="evaluate.RunWithTimeout">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">evaluate.</span></span><span class="sig-name descname"><span class="pre">RunWithTimeout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evaluate.RunWithTimeout" title="Permalink to this definition">#</a></dt>
+<dd><p>This class is used for running a function in a seperate thread with
+predfined timeout.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluate.RunWithTimeout.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evaluate.RunWithTimeout.run" title="Permalink to this definition">#</a></dt>
+<dd><p>Runs the function with timeout.
+:param timeout: time in seconds
+:return: test</p>
+</dd></dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="evaluate.get_from_csv">
+<span class="sig-prename descclassname"><span class="pre">evaluate.</span></span><span class="sig-name descname"><span class="pre">get_from_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evaluate.get_from_csv" title="Permalink to this definition">#</a></dt>
+<dd><p>Reads from the specified csv file.
+:param file: test
+:return: test</p>
+</dd></dl>
 </section>
 <section id="module-leak_detection">
 <span id="leak-detection-py"></span><h2>leak_detection.py<a class="headerlink" href="#module-leak_detection" title="Permalink to this headline">#</a></h2>
@@ -287,7 +307,7 @@ Args:</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">API Documentation</a><ul>
-<li><a class="reference internal" href="#evaluate-py">evaluate.py</a></li>
+<li><a class="reference internal" href="#module-evaluate">evaluate.py</a></li>
 <li><a class="reference internal" href="#module-leak_detection">leak_detection.py</a></li>
 </ul>
 </li>
