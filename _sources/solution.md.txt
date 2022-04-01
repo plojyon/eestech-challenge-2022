@@ -3,4 +3,4 @@
 ## Part 1
 
 ## Part 2
-![simple graph](_static/simple_graph.png)
+![simple graph](imgs/simple_graph.png)
