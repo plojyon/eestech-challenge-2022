@@ -1,10 +1,27 @@
 # Challenge description
 
-TODO: Add description of the water leakage challenge.
+Water is a daily necessary resource for life, health, economic development and
+the ecosystem all over the world.  Although water is still a relatively cheap
+and accessible commodity in Europe, drinking water discharges still represent
+significant losses to the environment, especially during increasingly frequent
+drought periods. On the other hand, faecal wastewater leaks are also undesirable,
+as they can further destroy infrastructure and pollute the environment. Public 
+utility companies strive to eliminate spills and control their pipeline system 
+as soon as possible, but with the increasing diversification, the control of 
+such systems is a difficult task. 
 
-Having an unidentified leak is nerve-wracking. There is no way to know the extent of the issue or damage being done until you find and repair the source. If you suspect there is a leak inside of a wall, don't panic—you may be able to address it without major maintenance or shelling out for a repair.
+Medius is challenging EESTech Challenge participants here!
 
-Water leaks are often because of pinholes in your plumbing system or small failures in caulking or other exterior materials. Water takes the easiest path down to the ground, so it will often travel along the framing in the walls. If you are not sure, use a moisture meter to find out if the moisture levels in your home are within normal parameters and an infrared camera to look for leaks behind walls and ceilings.
+Teams will have the task of **detecting potential water leakage** before it occurs,
+using the data we measure on the micro turbines and the principles of machine
+learning. Faster and more efficient detection of potential water discharges can
+drastically help reduce drinking water losses.
+
+With the help of pre-prepared data, the participants of the challenge will
+be challenged with task of develop an algorithm that will try to automatically 
+detect water spills. As its input, the algorithm will obtain measurable quantities
+of micro turbines in the form of time series, process them and try to predict or.
+detect water outflow.
 
 Implement your solution in [predict.py](leak_detection.py) under the method predict. The method takes in a list of features and should return a boolean.
 It should return true if leak is detected, otherwise it should return false. You can create new files and import them into predict.py.
