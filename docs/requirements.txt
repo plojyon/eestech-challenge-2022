@@ -1,3 +1,10 @@
+scikit-learn==1.0.2
+altair
+altair_saver
+numpy
+pandas
+selenium
+sklearn
 sphinx
 livereload
 myst-parser

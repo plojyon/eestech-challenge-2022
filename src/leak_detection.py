@@ -5,6 +5,7 @@ class LeakDetection:
     """
     For correct automatic evaluation please implement your prediction logic inside this class
     """
+
     def __init__(self, dirname='.'):
         self.model = self.load_model(dirname)
 
@@ -12,10 +13,10 @@ class LeakDetection:
         """
         Loads your pretrained model to use it for prediction.
         Please use os.path.join(location_to_dir, model_file_name)
-        Args:
-            dirname: Path to directory where model is located
-        Returns:
-            returns your pretrained model, if no model is required return None
+
+        :param dirname: Path to directory where model is located
+        :return: your pretrained model, if no model is required return None
+
         Example::
             import os
             import joblib
@@ -26,10 +27,10 @@ class LeakDetection:
     def predict(self, features: List) -> bool:
         """
         Your implementation for prediction. If leak is detected it should return true.
-        Args:
-            features: A list of features
-        Returns:
-            should return true if leak is detected. Otherwise, it should return false.
+
+        :param features: A list of features
+        :return: should return true if leak is detected. Otherwise, it should return false.
+
         Example::
             return self.model.predict(features) == 0
         """
