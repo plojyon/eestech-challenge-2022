@@ -1,13 +1,15 @@
 # EESTECH Challenge 2022 - Water Leakage Detection
-This repository contains the starter template for implementaion of 
+This repository contains the starter template for implementation of 
 prediction model for water leakage detection challenge on EESTEC
 hackathon 2022.
 
 ## Repository structure
-The repository contains two folders:
-- `docs` contains files for generating documentation in
-  [Sphinx](https://www.sphinx-doc.org/en/master/)
-- `src` starter code
+The repository contains the following folders and files:
+- `docs` contains the files for generating documentation in [Sphinx](https://www.sphinx-doc.org/en/1.4.9/index.html)
+- `example` contains example files for Phase 2 submission
+- `src` contains the starter code
+- `src/utils` contains utility functions
+- `src/leak_detection.py` python class you should implement and submit
 
 ## Getting started
 1. Fork the repository.
