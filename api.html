@@ -154,7 +154,8 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="challenge_description.html">Challenge description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="environment.html">Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment.html">Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="solution.html">Solution</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">API Documentation</a></li>
 </ul>
@@ -263,21 +264,29 @@ Please use os.path.join(location_to_dir, model_file_name)</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>dirname</strong> – Path to directory where model is located</p>
 </dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>your pretrained model, if no model is required return None</p>
+</dd>
 </dl>
-<p>:return your pretrained model, if no model is required return None
-Example:</p>
-<blockquote>
-<div><p>import os
+<dl class="simple">
+<dt>Example:</dt><dd><p>import os
 import joblib
 load(os.path.join(self.dirname, ‘tree.joblib’))</p>
-</div></blockquote>
+</dd>
+</dl>
 </dd></dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="leak_detection.LeakDetection.predict">
 <span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#leak_detection.LeakDetection.predict" title="Permalink to this definition">#</a></dt>
-<dd><p>Your implementation for prediction. If leak is detected it should return true.
-:param features: A list of features
-:return: should return true if leak is detected. Otherwise, it should return false.</p>
+<dd><p>Your implementation for prediction. If leak is detected it should return true.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>features</strong> – A list of features</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>should return true if leak is detected. Otherwise, it should return false.</p>
+</dd>
+</dl>
 <dl class="simple">
 <dt>Example:</dt><dd><p>return self.model.predict(features) == 0</p>
 </dd>

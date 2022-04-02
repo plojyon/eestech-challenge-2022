@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Solution" href="solution.html" /><link rel="prev" title="Challenge description" href="challenge_description.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Solution" href="solution.html" /><link rel="prev" title="Datasets" href="data.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.03.04"/>
-        <title>Environment - Eestec Challenge 2022 documentation</title>
+        <title>Getting started - Eestec Challenge 2022 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=935aa2abcc5c1da4283d1dc201fb1f0add16d23a" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
@@ -154,7 +154,8 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="challenge_description.html">Challenge description</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Datasets</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="solution.html">Solution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
 </ul>
@@ -189,15 +190,105 @@
           </label>
         </div>
         <article role="main">
-          <section id="environment">
-<h1>Environment<a class="headerlink" href="#environment" title="Permalink to this headline">#</a></h1>
+          <section id="getting-started">
+<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">#</a></h1>
+<p>To get started, fork the repository from <a class="reference external" href="https://github.com/MediusInc/eestech-challenge-2022">github</a>.</p>
 <section id="environment-structure">
 <h2>Environment structure<a class="headerlink" href="#environment-structure" title="Permalink to this headline">#</a></h2>
 <p>The repository contains the following folders and files:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">docs</span></code> contains the files for generating documentation in <a class="reference external" href="https://www.sphinx-doc.org/en/1.4.9/index.html">Sphinx</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">example</span></code> contains example files for Phase 2 submission</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src</span></code> contains the starter code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src/utils</span></code> contains utility functions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src/leak_detection.py</span></code> python class you should implement and submit</p></li>
 </ul>
-<p>TODO</p>
+</section>
+<section id="challenge">
+<h2>Challenge<a class="headerlink" href="#challenge" title="Permalink to this headline">#</a></h2>
+<p>Implement your solution in <a class="reference download internal" download="" href="_downloads/84791537e47e43eb26ee2de79794abdf/leak_detection.py"><span class="xref download myst">leak_detection.py</span></a> under the method predict.
+The method takes in a list of features and should return a boolean. It should return true if leak
+is detected and false if there is no leak. You can create new files and import them into <code class="docutils literal notranslate"><span class="pre">predict.py</span></code>.
+Example of how predict method will be called is in <code class="docutils literal notranslate"><span class="pre">evaluate.py</span></code>. You can use it to test your solution.</p>
+</section>
+<section id="set-up-environment">
+<h2>Set up environment<a class="headerlink" href="#set-up-environment" title="Permalink to this headline">#</a></h2>
+<p>To set up environment you just have to install all the dependencies. You can do so with <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -r requirements.txt
+</pre></div>
+</div>
+</section>
+<section id="phase-1">
+<h2>Phase 1<a class="headerlink" href="#phase-1" title="Permalink to this headline">#</a></h2>
+<p>The first task goal is to analyze and try to detect water discharges based
+on unlabeled data from micro-turbine signals.</p>
+<p>You have to use advanced anomaly detection algorithms through machine learning
+or advanced statistical analysis to predict leakages.</p>
+<section id="submission">
+<h3>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">#</a></h3>
+<p>You have to upload json file with periods labels, where the leakage
+occurred.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"prediction_results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">"file_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"my-file4.csv"</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">"end_periods"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">360</span><span class="p">,</span><span class="w"> </span><span class="mi">720</span><span class="p">,</span><span class="w"> </span><span class="mi">10800</span><span class="p">,</span><span class="w"> </span><span class="mi">14400</span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">"leakages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">"file_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"my-file2.csv"</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">"end_periods"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1800</span><span class="p">,</span><span class="mi">5400</span><span class="p">,</span><span class="mi">8700</span><span class="p">,</span><span class="w"> </span><span class="mi">14400</span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">"leakages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="phase-2">
+<h2>Phase 2<a class="headerlink" href="#phase-2" title="Permalink to this headline">#</a></h2>
+<p><em>Before participating in phase 2, you should finish phase 1.</em></p>
+<p>The second phase has more advance dataset, than the first one.
+The labeled data (train dataset) also have seasonality component,
+but the principle of leakage remains the same as it was analysed in phase 1.
+Additionally, the trend could be easily analysed on dataset samples, describing
+time series data signals, obtained from micro-turbine IoT device.</p>
+<p>Beside the resulting json file, participants will also have to submit the
+working algorithm, which is able to predict real time stream data. Such prediction
+algorithm will be tested and evaluated in EvalAI platform.</p>
+<p>After submitting final submission, the algorithm will be evaluated
+in live stream data, which will also present the final result, and will be
+presented as final challenge score.</p>
+<section id="id1">
+<h3>Submission<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">result.json</span></code> file should look something like this:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">"prediction_results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">"file_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"my-file4.csv"</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">"end_periods"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">360</span><span class="p">,</span><span class="w"> </span><span class="mi">720</span><span class="p">,</span><span class="w"> </span><span class="mi">10800</span><span class="p">,</span><span class="w"> </span><span class="mi">14400</span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">"leakages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">"file_name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"my-file2.csv"</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">"end_periods"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1800</span><span class="p">,</span><span class="mi">5400</span><span class="p">,</span><span class="mi">8700</span><span class="p">,</span><span class="w"> </span><span class="mi">14400</span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">"leakages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>When submitting the algorithm, you should also include the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> and all the necessary
+files for the algorithm to work. You can submit everything in a <code class="docutils literal notranslate"><span class="pre">zip</span></code> format. An example of the
+submission files can be seen in <code class="docutils literal notranslate"><span class="pre">example</span></code> folder (file <code class="docutils literal notranslate"><span class="pre">tree.joblib</span></code> is optional).</p>
+</section>
+</section>
+<section id="submitting">
+<h2>Submitting<a class="headerlink" href="#submitting" title="Permalink to this headline">#</a></h2>
+<p>To submit your solution you need to upload it to our <a class="reference external" href="https://evalai.srv.medius.si/">EvalAI server</a>.</p>
 </section>
 </section>
 
@@ -215,14 +306,14 @@
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="challenge_description.html">
+          <a class="prev-page" href="data.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Challenge description</div>
+                <div class="title">Datasets</div>
                 
               </div>
             </a>
@@ -258,8 +349,19 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Environment</a><ul>
+<li><a class="reference internal" href="#">Getting started</a><ul>
 <li><a class="reference internal" href="#environment-structure">Environment structure</a></li>
+<li><a class="reference internal" href="#challenge">Challenge</a></li>
+<li><a class="reference internal" href="#set-up-environment">Set up environment</a></li>
+<li><a class="reference internal" href="#phase-1">Phase 1</a><ul>
+<li><a class="reference internal" href="#submission">Submission</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#phase-2">Phase 2</a><ul>
+<li><a class="reference internal" href="#id1">Submission</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#submitting">Submitting</a></li>
 </ul>
 </li>
 </ul>

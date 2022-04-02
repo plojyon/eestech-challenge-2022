@@ -22,7 +22,3 @@ be challenged with task of develop an algorithm that will try to automatically
 detect water spills. As its input, the algorithm will obtain measurable quantities
 of micro turbines in the form of time series, process them and try to predict or.
 detect water outflow.
-
-Implement your solution in [predict.py](leak_detection.py) under the method predict. The method takes in a list of features and should return a boolean.
-It should return true if leak is detected, otherwise it should return false. You can create new files and import them into predict.py.
-evaluate.py is an example of how predict method will be called for evaluation. You can use it to test your solution.
