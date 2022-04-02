@@ -11,7 +11,11 @@ from .metrics import calculate_regression_metrics
 
 
 def set_constant_period(amp, period):
-    """Set constant period
+    """
+    Set constant period
+    :param amp: amplitude eiter 0 or 1
+    :param period: how long is the amp
+    :return: :param the amp value over period
     """
     amplitude = pd.Series(np.ones(period, dtype=int)*amp, name="amplitude")
 
@@ -19,7 +23,12 @@ def set_constant_period(amp, period):
 
 
 def generate_steps(freq='10s', amplitude=[0], end_periods=[604800], start_date="2022-03-01", fixed_end=604800):
-    """Generate random step for amplitude and frequency in a range
+    """
+    Generate the signal. It transforms amplitudes and end periods into timeseries label.
+    :param freq: time between each label (this should be fixed to 10s)
+    :param amplitude: a list of 0 and 1
+    :param end_periods: when amplitude changed in seconds from the start_date
+    :return: pandas dataframe with time and label
     """
     end_periods = [int(p/10) * 10 for p in end_periods]
     f = int(freq[:-1])
@@ -51,7 +60,11 @@ def generate_steps(freq='10s', amplitude=[0], end_periods=[604800], start_date="
 
 
 def evaluate(org_data, prediction_data):
-    """Evaluate preprocess prepare data for eval and initialize furter evaluation process
+    """
+    Evaluate ground truth and predictions
+    :param org_data: ground truth data
+    :param prediction_data: predicted data
+    :return: a dictionary of metrics
     """
     org_data['origin'] = ["truth"]*org_data.shape[0]
     prediction_data['origin'] = ["predicted"]*prediction_data.shape[0]
@@ -76,7 +89,8 @@ def evaluate(org_data, prediction_data):
 
 
 def convert_json_data_to_dataframe(data_dict):
-    """Convert data to dataframe
+    """
+    Convert json data into one big dataframe
     """
     sorted_data_list = sorted(data_dict['prediction_results'], key=lambda d: d['file_name'])
     df = pd.DataFrame(columns=['date', 'amplitude'])
@@ -92,7 +106,6 @@ def convert_json_data_to_dataframe(data_dict):
 def read_json(json_file):
     with open(json_file, 'r') as j:
         contents = json.loads(j.read())
-
     return contents
 
 

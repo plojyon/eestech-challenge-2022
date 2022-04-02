@@ -8,8 +8,8 @@ from utils.utils import convert_date_to_seconds, convert_json_data_to_dataframe,
 
 class RunWithTimeout(object):
     """
-    This class is used for running a function in a seperate thread with
-    predfined timeout.
+    This class is used for running a function in a separate thread with
+    predefined timeout.
     """
 
     def __init__(self, function, args):
@@ -45,6 +45,12 @@ def get_from_csv(file):
 
 
 def run_live_prediction(file, model):
+    """
+    Opens a csv file and makes predictions.
+    :param file: A csv file
+    :param model: Model which makes prediction
+    :return: a dictionary with file name, end periods and leakages
+    """
     with open(file, 'r') as f:
         previous_prediction = None
         amplitude = []
@@ -60,16 +66,23 @@ def run_live_prediction(file, model):
                 previous_prediction = prediction
         if len(amplitude) == 0:
             amplitude.append(int(previous_prediction))
-            end_periods.append(convert_date_to_seconds('2022-03-07 23:59:50'))
+            end_periods.append(convert_date_to_seconds('2022-03-08 00:00:00'))
     return {"file_name": os.path.basename(file), "end_periods": end_periods, "leakages": amplitude}
 
 
 def evaluate_json(prediction_json, true_json):
+    """
+    Compares two jsons (or dictionaries) i.e. the json with ground truth and predictions
+    :param prediction_json: json object where predictions are found
+    :param true_json: json object where ground truth is
+    :return: metric on how good you predicted
+    :raises Exception: If a file is missing in either the prediction json or in ground truth json
+    """
     set_one = {p['file_name'] for p in prediction_json['prediction_results']}
     set_two = {p['file_name'] for p in true_json['prediction_results']}
 
     if len(set_one.union(set_two)) != len(set_one):
-        raise "Filenames do not match or there is a missing prediction file"
+        raise Exception("Filenames do not match or there is a missing prediction file")
 
     true_data = convert_json_data_to_dataframe(true_json)
     predicted_data = convert_json_data_to_dataframe(prediction_json)
@@ -77,10 +90,23 @@ def evaluate_json(prediction_json, true_json):
 
 
 def generate_live_predictions(files: List, model) -> dict:
+    """
+    Takes a list of csv files and prediction model, it generates the prediction json
+    :param files: list of csv files
+    :param model: prediction model
+    :return: json with predictions for each csv file
+    """
     return {'prediction_results': [run_live_prediction(file, model) for file in files]}
 
 
 def evaluate_live(csv_files, true_results_json_file, model):
+    """
+    A wrapper fo evaluate_json and generate_live_predictions
+    :param csv_files: list of csv files
+    :param true_results_json_file: json file with ground truth
+    :param model: prediction model
+    :returns: metric on how good you predicted
+    """
     prediction_json = generate_live_predictions(csv_files, model)
     true_json = read_json(true_results_json_file)
     return evaluate_json(prediction_json, true_json)

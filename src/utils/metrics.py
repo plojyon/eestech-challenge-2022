@@ -5,7 +5,11 @@ from sklearn.metrics import r2_score
 
 
 def calculate_regression_metrics(y_true, y_predicted):
-    """Calculate prediction metrics
+    """
+    Calculate prediction metrics
+    :param y_true: true labels
+    :param y_predicted: predicted labels
+    :return: dictionary of score metrics
     """
 
     xvs = explained_variance_score(y_true, y_predicted)
