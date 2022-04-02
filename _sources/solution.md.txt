@@ -1,6 +1,10 @@
 # Solution
 
-## Part 1
+## Phase 1
+You should describe your solution for Phase 1 here.
 
-## Part 2
+## Phase 2
+You should describe your solution for Phase 2 here.
+
+Example how to add images:
 ![simple graph](imgs/simple_graph.PNG)

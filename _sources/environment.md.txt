@@ -93,9 +93,12 @@ The `result.json` file should look something like this:
 
 When submitting the algorithm, you should also include the `requirements.txt` and all the necessary
 files for the algorithm to work. You can submit everything in a `zip` format. An example of the
-submission files can be seen in `example` folder (file `tree.joblib` is optional).
+submission files can be seen in [example](../example) folder (file `tree.joblib` is optional).
 
 ## Submitting
 To submit your solution you need to upload it to our [EvalAI server](https://evalai.srv.medius.si/).
+
+## Solution documentation
+After completing the tasks, please add documentation of your solutions to [solution.md](solution.md).
 
 
