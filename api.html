@@ -196,8 +196,8 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="evaluate.RunWithTimeout">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">evaluate.</span></span><span class="sig-name descname"><span class="pre">RunWithTimeout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evaluate.RunWithTimeout" title="Permalink to this definition">#</a></dt>
-<dd><p>This class is used for running a function in a seperate thread with
-predfined timeout.</p>
+<dd><p>This class is used for running a function in a separate thread with
+predefined timeout.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="evaluate.RunWithTimeout.run">
 <span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evaluate.RunWithTimeout.run" title="Permalink to this definition">#</a></dt>
@@ -207,11 +207,45 @@ predfined timeout.</p>
 </dd></dl>
 </dd></dl>
 <dl class="py function">
+<dt class="sig sig-object py" id="evaluate.evaluate_json">
+<span class="sig-prename descclassname"><span class="pre">evaluate.</span></span><span class="sig-name descname"><span class="pre">evaluate_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction_json</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_json</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evaluate.evaluate_json" title="Permalink to this definition">#</a></dt>
+<dd><p>Compares two jsons (or dictionaries) i.e. the json with ground truth and predictions
+:param prediction_json: json object where predictions are found
+:param true_json: json object where ground truth is
+:return: metric on how good you predicted
+:raises Exception: If a file is missing in either the prediction json or in ground truth json</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="evaluate.evaluate_live">
+<span class="sig-prename descclassname"><span class="pre">evaluate.</span></span><span class="sig-name descname"><span class="pre">evaluate_live</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csv_files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_results_json_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evaluate.evaluate_live" title="Permalink to this definition">#</a></dt>
+<dd><p>A wrapper fo evaluate_json and generate_live_predictions
+:param csv_files: list of csv files
+:param true_results_json_file: json file with ground truth
+:param model: prediction model
+:returns: metric on how good you predicted</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="evaluate.generate_live_predictions">
+<span class="sig-prename descclassname"><span class="pre">evaluate.</span></span><span class="sig-name descname"><span class="pre">generate_live_predictions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#evaluate.generate_live_predictions" title="Permalink to this definition">#</a></dt>
+<dd><p>Takes a list of csv files and prediction model, it generates the prediction json
+:param files: list of csv files
+:param model: prediction model
+:return: json with predictions for each csv file</p>
+</dd></dl>
+<dl class="py function">
 <dt class="sig sig-object py" id="evaluate.get_from_csv">
 <span class="sig-prename descclassname"><span class="pre">evaluate.</span></span><span class="sig-name descname"><span class="pre">get_from_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evaluate.get_from_csv" title="Permalink to this definition">#</a></dt>
 <dd><p>Reads from the specified csv file.
 :param file: test
 :return: test</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="evaluate.run_live_prediction">
+<span class="sig-prename descclassname"><span class="pre">evaluate.</span></span><span class="sig-name descname"><span class="pre">run_live_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evaluate.run_live_prediction" title="Permalink to this definition">#</a></dt>
+<dd><p>Opens a csv file and makes predictions.
+:param file: A csv file
+:param model: Model which makes prediction
+:return: a dictionary with file name, end periods and leakages</p>
 </dd></dl>
 </section>
 <section id="module-leak_detection">
@@ -229,31 +263,23 @@ Please use os.path.join(location_to_dir, model_file_name)</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>dirname</strong> – Path to directory where model is located</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>your pretrained model, if no model is required return None</p>
-</dd>
 </dl>
-<dl class="simple">
-<dt>Example::</dt><dd><p>import os
+<p>:return your pretrained model, if no model is required return None
+Example:</p>
+<blockquote>
+<div><p>import os
 import joblib
 load(os.path.join(self.dirname, ‘tree.joblib’))</p>
-</dd>
-</dl>
+</div></blockquote>
 </dd></dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="leak_detection.LeakDetection.predict">
 <span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#leak_detection.LeakDetection.predict" title="Permalink to this definition">#</a></dt>
-<dd><p>Your implementation for prediction. If leak is detected it should return true.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>features</strong> – A list of features</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>should return true if leak is detected. Otherwise, it should return false.</p>
-</dd>
-</dl>
+<dd><p>Your implementation for prediction. If leak is detected it should return true.
+:param features: A list of features
+:return: should return true if leak is detected. Otherwise, it should return false.</p>
 <dl class="simple">
-<dt>Example::</dt><dd><p>return self.model.predict(features) == 0</p>
+<dt>Example:</dt><dd><p>return self.model.predict(features) == 0</p>
 </dd>
 </dl>
 </dd></dl>
