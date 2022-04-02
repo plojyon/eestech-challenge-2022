@@ -14,7 +14,7 @@ The repository contains the following folders and files:
 ## Getting started
 1. Fork the repository.
 2. Implement the `LeakDetection` class.
-3. Submit your solution to [evalai.medius.srv.si](evalai.medius.srv.si).
+3. Submit your solution to [evalai.medius.srv.si](https://evalai.srv.medius.si/).
 
 ## Documentation
 More detailed instructions and documentation is hosted via 
