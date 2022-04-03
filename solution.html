@@ -194,7 +194,15 @@
 <h1>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h1>
 <section id="phase-1">
 <h2>Phase 1<a class="headerlink" href="#phase-1" title="Permalink to this headline">#</a></h2>
-<p>You should describe your solution for Phase 1 here.</p>
+<p>We began by visualising our data and found it very clean and regular.
+<img alt="data visualization" src="_images/pretty_data.png"/></p>
+<p>We decided to use a simplistic approach in order to achieve a solution as computationally inexpensive as possible.</p>
+<p>Visualizing water pressure over time seemed sufficient to find anomalies. We applied a rolling average function to the chaotic pressure function with a window of 100 data points. The end result was a smooth line (orange).</p>
+<p><img alt="pressure over time" src="_images/pressure_over_time.png"/></p>
+<p>Next, we took a derivative of the orange line and produced a set of points with a small absolute value with occasional positive or negative peaks, which told us if spikes in the data went up or down.</p>
+<p><img alt="pressure derivative" src="_images/pressure_derivative.png"/></p>
+<p>A simple interval threshold <code class="docutils literal notranslate"><span class="pre">(-1e-05,</span> <span class="pre">1e-05)</span></code> was sufficient to detect these spikes.</p>
+<p>We used this data to segment our timeline into intervals and assumed the highest reached pressure level as the baseline, while any pressure drops signified probable leaks.</p>
 </section>
 <section id="phase-2">
 <h2>Phase 2<a class="headerlink" href="#phase-2" title="Permalink to this headline">#</a></h2>

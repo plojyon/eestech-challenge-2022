@@ -1,3 +1,3 @@
-GitHub Pages of [MediusInc/eestech-challenge-2022](https://github.com/MediusInc/eestech-challenge-2022.git)
+GitHub Pages of [plojyon/eestech-challenge-2022](https://github.com/plojyon/eestech-challenge-2022.git)
 ===
-Sphinx html documentation of [38be4fae](https://github.com/MediusInc/eestech-challenge-2022/tree/38be4fae0efdd351e6d7c32f44df90f0025fa85d)
+Sphinx html documentation of [14955c17](https://github.com/plojyon/eestech-challenge-2022/tree/14955c17b1ace090ae5dced184a1d60a24fbd327)
